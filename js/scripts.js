@@ -220,7 +220,8 @@ const reversedMap = new Map([['._', 'a'],
 ['.--', 'w'],
 ['-..-', 'x'],
 ['-.--', 'y'],
-['--..', 'z']]);
+['--..', 'z'],
+['/',' ']]);
 //Causes translation of Morse to appear
 function showMorse() {
     let inputEnglish = document.getElementById("inputEnglish").value
@@ -235,7 +236,7 @@ function translateEnglish(word) {
     }
     for (let i = 0; i < word.length - 1; i++) {
         translatedEnglish += cipher.get(word[i])
-        translatedEnglish += ""
+        translatedEnglish += " "
     }
     translatedEnglish += cipher.get(word[word.length - 1])
     return translatedEnglish
