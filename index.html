@@ -9,18 +9,18 @@
 <body>
     <!-- Word to Morse code-->
     English to Morse Code
-    <input type="text" id="inputWord">
-    <button type ="button" id="submitWord" onclick="encryptWord()" style="background-color:black; color:rgb(187, 66, 90);border-radius:5px"> Translate </button>
-    <textarea id="translateWord"></textarea>
+    <input type="text" id="inputEnglish">
+    <button onclick="showMorse()" style="background-color:black; color:rgb(187, 66, 90);border-radius:5px"> Translate </button>
+    <textarea id="translatedMorse"></textarea>
     <script src = "js/scripts.js"></script>
 
     <br>
-    <!--Morse Code to English-->
-    <!-- Morse Code to English
-    <input type="text" id="inputWord">
-    <button type ="button" id="submitWord" onclick="encryptWord()" style="background-color:black; color:rgb(187, 66, 90);border-radius:5px"> Translate </button>
-    <textarea id="translateMorse"></textarea>
-    <script src = "js/scripts.js"></script> -->
+
+    Morse Code to English
+    <input type="text" id="inputMorse">
+    <button onclick="showEnglish()" style="background-color:black; color:rgb(187, 66, 90);border-radius:5px"> Translate </button>
+    <textarea id="translatedEnglish"></textarea>
+    <script src = "js/scripts.js"></script>
 </body>
 </html>
 

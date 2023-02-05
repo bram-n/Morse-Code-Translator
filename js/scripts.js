@@ -117,88 +117,122 @@ const cipher = new Map([
     ['9', '----.'],
     ['0', '-----'],
     // //Numbers with _
-    // ['1', '.____'],
-    // ['2', '..___'],
-    // ['3', '...__'],
-    // ['4', '...._'],
-    // ['5', '.....'],
-    // ['6', '_....'],
-    // ['7', '__...'],
-    // ['8', '___..'],
-    // ['9', '____.'],
-    // ['0', '_____'],
+    ['1', '.____'],
+    ['2', '..___'],
+    ['3', '...__'],
+    ['4', '...._'],
+    ['5', '.....'],
+    ['6', '_....'],
+    ['7', '__...'],
+    ['8', '___..'],
+    ['9', '____.'],
+    ['0', '_____'],
     // //Special characters with -
-    // [' ', '/'],
-    // ['!', '-.-.--'],
-    // ['?', '..--..'],
-    // [',', '--..--'],
-    // ['.', '.-.-.-'],
-    // [':', '---...'],
-    // [';', '-.-.-.'],
-    // ['=', '-...-'],
-    // ['+', '.-.-.'],
-    // ['-', '-....-'],
-    // ['$', '...-..'],
-    // ['@', '...-..-'],
-    // ['&','.-...']
+    [' ', '/'],
+    ['!', '-.-.--'],
+    ['?', '..--..'],
+    [',', '--..--'],
+    ['.', '.-.-.-'],
+    [':', '---...'],
+    [';', '-.-.-.'],
+    ['=', '-...-'],
+    ['+', '.-.-.'],
+    ['-', '-....-'],
+    ['$', '...-..'],
+    ['@', '...-..-'],
+    ['&','.-...'],
     // //Special characters with _
-    // [' ', '/'],
-    // ['!', '_._.__'],
-    // ['?', '..__..'],
-    // [',', '__..__'],
-    // ['.', '._._._'],
-    // [':', '___...'],
-    // [';', '_._._.'],
-    // ['=', '_..._'],
-    // ['+', '._._.'],
-    // ['_', '_...._'],
-    // ['$', '..._..'],
-    // ['@', '..._.._'],
-    // ['&','._...']
+    [' ', '/'],
+    ['!', '_._.__'],
+    ['?', '..__..'],
+    [',', '__..__'],
+    ['.', '._._._'],
+    [':', '___...'],
+    [';', '_._._.'],
+    ['=', '_..._'],
+    ['+', '._._.'],
+    ['_', '_...._'],
+    ['$', '..._..'],
+    ['@', '..._.._'],
+    ['&','._...'],
     // // Procedural Characters with -
-    // ['*Start of work*','-.-.-'],
-    // ['*Invitation to Transit*','-.-'],
-    // ['*End of message*','.-.-.'],
-    // ['Error','........'],
-    // ['*End of work*','...-.-'],
-    // ['*Invitation for a particular station to transmit*','-.--.'],
-    // ['*Wait*','.-...'],
-    // ['*Understood*','...-.']
+    ['*Start of work*','-.-.-'],
+    ['*Invitation to Transit*','-.-'],
+    ['*End of message*','.-.-.'],
+    ['Error','........'],
+    ['*End of work*','...-.-'],
+    ['*Invitation for a particular station to transmit*','-.--.'],
+    ['*Wait*','.-...'],
+    ['*Understood*','...-.'],
     // // Procedural Characters with _
-    // ['*Start of work*','_._._'],
-    // ['*Invitation to Transit*','_._'],
-    // ['*End of message*','._._.'],
-    // ['*End of work*','..._._'],
-    // ['*Invitation for a particular station to transmit*','_.__.'],
-    // ['*Wait*','._...'],
-    // ['*Understood*','..._.']
+    ['*Start of work*','_._._'],
+    ['*Invitation to Transit*','_._'],
+    ['*End of message*','._._.'],
+    ['*End of work*','..._._'],
+    ['*Invitation for a particular station to transmit*','_.__.'],
+    ['*Wait*','._...'],
+    ['*Understood*','..._.']
 ]);
-//Causes translation to appear
-function encryptWord() {
-    document.getElementById("translateWord").value = translateWord(document.getElementById("inputWord").value)
+
+// const reversedMap = new Map=[...cipher].cipher(([k, v]) => [v, k]);
+// console.log(reversedMap)
+
+const reversedMap =new Map([ ['._', 'a'], 
+['_...', 'b'],
+ ['_._.', 'c'], 
+ ['_..', 'd'], 
+ ['.', 'e'], 
+ ['.._.', 'f'], 
+ ['__.', 'g'], 
+ ['....', 'h'], 
+ ['..', 'i'], 
+ ['.___','j'], 
+ ['_._', 'k'], 
+ ['._..', 'l'], 
+ ['__', 'm'], 
+ ['_.', 'n'], 
+ ['___', 'o'], 
+ ['.__.', 'p'], 
+ ['__._', 'q'], 
+ ['._.', 'r'], 
+ ['...', 's'], 
+ ['_', 't'], 
+ ['.._', 'u'], 
+ ['..._', 'v'], 
+ ['.__', 'w'], 
+ ['_.._', 'x'], 
+ ['_.__', 'y'], 
+ ['__..', 'z']]);
+//Causes translation of Morse to appear
+function showMorse() {
+    let inputEnglish=document.getElementById("inputEnglish").value
+    document.getElementById("translatedMorse").value = translateEnglish(inputEnglish)
 
 }
-//translate a input of English to MorseCode
-function translateWord(word) {
-    let translatedWord = "" 
+//translates an input of English to MorseCode
+function translateEnglish(word) {
+    let translatedEnglish = "" 
     if (word.length==0){
         return "........"
     }
     for (let i=0; i<word.length-1; i++){ 
-        translatedWord += cipher.get(word[i])
-        translatedWord +=""
+        translatedEnglish += cipher.get(word[i])
+        translatedEnglish+=""
     }
-        translatedWord += cipher.get (word[word. length-1])
-        return translatedWord
+        translatedEnglish += cipher.get (word[word. length-1])
+        return translatedEnglish
 }
 
 
+//Causes translation of Morse to appear
+function showEnglish() {
+    let word = (document.getElementById("inputMorse").value)
+    document.getElementById("translatedEnglish").value = translateMorse(". ._")
 
-function translateMorse(word){
-    let translatedWord=""
-    if (document.getElementById("translateWord").value.length==0){
-        return "error"
-    }
+}
+// //translates an input of MorseCode to English
+function translateMorse(code){
+    splitCode=code.split(" ")
+    reversedMap.get(splitCode[0])
+}
     
-
-}
