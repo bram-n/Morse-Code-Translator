@@ -5,24 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morse Code Translator</title>
+    <link href="styles.css" rel="stylesheet"/>
 </head>
 <h1>Welcome to the Morse Code Translator!</h1>
 
 <body>
+  <div>
     <!-- Word to Morse code-->
     English to Morse Code
-    <input type="text" id="inputEnglish">
-    <button onclick="showMorse()" style="background-color:black; color:rgb(187, 66, 90);border-radius:5px"> Translate </button>
-    <textarea id="translatedMorse"></textarea>
+      <input type="text" id="inputEnglish" class="inputEnglish">
+    <button onclick="showMorse()" class="translateButton">  Translate </button>
+    <textarea id="translatedMorse" placeholder="Translation" readonly disabled></textarea>
     <script src = "js/scripts.js"></script>
-
-    <br>
-
+  </div>
+<body>
+<body1>
+   <div>
     Morse Code to English
-    <input type="text" id="inputMorse">
-    <button onclick="showEnglish()" style="background-color:black; color:rgb(187, 66, 90);border-radius:5px"> Translate </button>
-    <textarea id="translatedEnglish"></textarea>
+    <input type="text" placeholder=". _. _ . ._. / .... . ._. ."id="inputMorse">
+    <button onclick="showEnglish()" class="translateButton" > Translate </button>
+    <textarea id="translatedEnglish" placeholder="Translation" readonly disabled></textarea>
     <script src = "js/scripts.js"></script>
-</body>
+    </div>
+</body1>
 </html>
 

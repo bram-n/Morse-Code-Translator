@@ -1,0 +1,21 @@
+body{
+    background-color: darkslategray;
+}
+h1{
+  text-align:center
+}
+body{
+  text-align:left;
+}
+body1{
+    text-align:right;
+}
+div{
+  margin-left:auto;
+ margin-right:auto;
+}
+.translateButton{
+  background-color: black;
+  color:rgb(187, 66, 90);
+/*   border-radius:2px */
+}
